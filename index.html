@@ -440,19 +440,82 @@ footer .footer-icons a:hover{color:var(--gold);}
     margin-top: 1.5rem !important;
   }
 
-  /* 2. About Section overrides */
+  /* 2. About Section — full mobile layout fix */
   #about {
+    flex-direction: column !important;
     gap: 2.5rem !important;
+    align-items: center !important;
+    text-align: left !important;
   }
+
+  /* Photo: centered, smaller, no negative offset, badge contained */
   .about-photo-wrap {
+    flex: none !important;
     width: 200px !important;
+    max-width: 60vw !important;
+    align-self: center !important;
+    position: relative !important;
+    top: 0 !important;           /* kill desktop -1cm offset */
+    margin: 0 auto !important;
+  }
+  .about-photo {
+    aspect-ratio: 3/4 !important;
+    border-radius: 14px !important;
+  }
+  .about-photo-badge {
+    right: -10px !important;
+    bottom: -10px !important;
+    font-size: 0.7rem !important;
+    padding: 7px 14px !important;
+  }
+
+  /* Content: full width, readable text */
+  .about-content {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
   }
   .about-text {
-    font-size: 0.95rem !important;
-    line-height: 1.75 !important;
+    font-size: 0.93rem !important;
+    line-height: 1.8 !important;
+    margin-bottom: 2rem !important;
   }
+
+  /* Mission & Vision: stack vertically */
+  .mission-vision {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+  .mv-card {
+    padding: 1.2rem !important;
+  }
+  .mv-card h4 {
+    font-size: 0.95rem !important;
+  }
+  .mv-card p {
+    font-size: 0.84rem !important;
+  }
+
+  /* Nav buttons: horizontal scroll with touch momentum */
   .about-nav-btns {
-    padding-bottom: 10px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding-bottom: 8px !important;
+    gap: 0.5rem !important;
+    scrollbar-width: thin !important;
+  }
+  .about-nav-btns a {
+    font-size: 0.74rem !important;
+    padding: 7px 13px !important;
   }
 
   /* 3. Experience Section overrides */
@@ -551,6 +614,145 @@ footer .footer-icons a:hover{color:var(--gold);}
   }
   .contact-info-panel {
     padding: 1.5rem 1.2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  #about {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 70px 16px !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 28px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  #about * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #about .about-photo-wrap {
+    width: 220px !important;
+    max-width: 220px !important;
+    flex: 0 0 auto !important;
+    align-self: center !important;
+    margin: 0 auto 12px auto !important;
+    padding: 0 !important;
+    top: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  #about .about-photo {
+    width: 220px !important;
+    max-width: 220px !important;
+    margin: 0 auto !important;
+    aspect-ratio: 3 / 4 !important;
+    overflow: hidden !important;
+  }
+
+  #about .about-photo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    display: block !important;
+  }
+
+  #about .about-photo-badge {
+    position: static !important;
+    transform: none !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 12px auto 0 auto !important;
+    white-space: nowrap !important;
+  }
+
+  #about .about-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #about .section-label,
+  #about .section-title,
+  #about .about-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  #about .section-title {
+    font-size: 2rem !important;
+    line-height: 1.15 !important;
+  }
+
+  #about .about-text {
+    font-size: 0.95rem !important;
+    line-height: 1.75 !important;
+  }
+
+  #about .mission-vision {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin: 24px 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #about .mv-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    overflow: hidden !important;
+    border-radius: 14px !important;
+  }
+
+  #about .mv-card p {
+    text-align: left !important;
+    overflow-wrap: break-word !important;
+  }
+
+  #about .about-nav-btns {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 10px !important;
+    padding: 0 0 8px 0 !important;
+    margin: 0 !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  #about .about-nav-btns a {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
   }
 }
 </style>

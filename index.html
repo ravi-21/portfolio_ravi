@@ -1433,7 +1433,6 @@ const barObserver = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.skill-card').forEach(c=>barObserver.observe(c));
 
 // ─── CONTACT FORM WITH EMAILJS ───
-// Initialize EmailJS with your Public Key
 emailjs.init({
   publicKey: "sqSp_KeSMkeRECqfl"
 });
@@ -1454,12 +1453,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     email: document.getElementById("email").value
   };
 
-  // Send the email using your Service ID and Template ID
-  emailjs.send(
-    "service_c51w7ck",
-    "template_rn2jyna",
-    templateParams
-  )
+  emailjs.send("service_c51w7ck", "template_rn2jyna", templateParams)
     .then(function(){
       btn.innerHTML = "Message Sent! ✓";
       btn.style.background = "#4ade80";

@@ -371,6 +371,188 @@ footer .footer-icons a:hover{color:var(--gold);}
   .stats-row{grid-template-columns:1fr 1fr;}
   .skills-grid{grid-template-columns:1fr;}
 }
+
+/* ─── MOBILE SCREEN ADJUSTMENTS (UNDER 768px) ─── */
+@media (max-width: 768px) {
+  /* Prevent logo and hamburger menu wrapping/clipping in Navbar */
+  #navbar {
+    padding: 0 5% !important;
+  }
+  .nav-logo {
+    font-size: 1.25rem !important;
+  }
+
+  /* Prevent horizontal scrolling & set responsive image defaults */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Restrict section paddings & min-height */
+  section {
+    padding: 60px 5% !important;
+    min-height: auto !important;
+  }
+
+  /* 1. Landing Section overrides */
+  #landing {
+    flex-direction: column !important;
+    padding-top: calc(var(--nav-h) + 2.5rem) !important;
+    padding-bottom: 3rem !important;
+    gap: 2.5rem !important;
+    text-align: center !important;
+  }
+  .landing-bg-text {
+    display: none !important;
+  }
+  .landing-name {
+    font-size: clamp(2.2rem, 9vw, 3.8rem) !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .landing-desig {
+    margin-top: 1rem !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 0.85rem !important;
+  }
+  .landing-intro {
+    font-size: 0.95rem !important;
+    margin-bottom: 2rem !important;
+    text-align: justify !important;
+  }
+  .cta-group {
+    justify-content: center !important;
+    margin-bottom: 2rem !important;
+    gap: 0.8rem !important;
+  }
+  .cta-group a {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px 20px !important;
+  }
+  .social-icons {
+    justify-content: center !important;
+  }
+  .landing-scroll {
+    display: none !important;
+  }
+  .landing-right {
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+  }
+
+  /* 2. About Section overrides */
+  #about {
+    gap: 2.5rem !important;
+  }
+  .about-photo-wrap {
+    width: 200px !important;
+  }
+  .about-text {
+    font-size: 0.95rem !important;
+    line-height: 1.75 !important;
+  }
+  .about-nav-btns {
+    padding-bottom: 10px !important;
+  }
+
+  /* 3. Experience Section overrides */
+  .exp-left {
+    padding: 1.5rem 1.2rem !important;
+  }
+  .exp-right {
+    padding: 1.5rem 1.2rem !important;
+  }
+  .exp-title {
+    font-size: 1.2rem !important;
+  }
+  .exp-bullets li {
+    font-size: 0.88rem !important;
+  }
+  .achieve-pill {
+    padding: 0.5rem 0.8rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* 4. Education overrides */
+  .edu-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .edu-card {
+    padding: 1.5rem !important;
+  }
+
+  /* 5. Projects Section overrides */
+  .proj-right {
+    padding: 1.5rem 1.2rem !important;
+  }
+  .proj-title {
+    font-size: 1.2rem !important;
+  }
+  .proj-desc {
+    font-size: 0.88rem !important;
+  }
+  .proj-outcomes {
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+  }
+  .outcome-box {
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* 6. Skills Section overrides */
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .skill-card {
+    padding: 1.5rem !important;
+  }
+
+  /* 7. Certifications overrides */
+  .cert-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* 8. Achievements overrides */
+  .stats-row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+  .stat-box {
+    padding: 1.2rem 0.8rem !important;
+  }
+  .stat-num {
+    font-size: 2.2rem !important;
+  }
+  .achieve-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .achieve-card {
+    padding: 1.5rem !important;
+  }
+  .achieve-year {
+    float: none !important;
+    display: inline-block !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* 9. Contact overrides */
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .contact-form-card {
+    padding: 1.5rem 1.2rem !important;
+  }
+  .contact-info-panel {
+    padding: 1.5rem 1.2rem !important;
+  }
+}
 </style>
 </head>
 <body>

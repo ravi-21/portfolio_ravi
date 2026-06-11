@@ -618,6 +618,104 @@ footer .tagline { font-style:italic; margin:.3rem 0 1rem; }
   .polaroid-grid { grid-template-columns:1fr; max-width:240px; margin:0 auto; }
 }
 
+/* ─── MOBILE SCREEN ADJUSTMENTS (UNDER 768px) ─── */
+@media (max-width: 768px) {
+  /* Prevent logo and return button wrap/clipping in Navbar */
+  #navbar {
+    padding: 0 4% !important;
+  }
+  .nav-logo {
+    font-size: 1.1rem !important;
+  }
+  .btn-return {
+    padding: 6px 14px !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Enforce responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Adjust section paddings */
+  .section-full, #ch1, #ch2, #ch3, #ch4, #ch5, #destination {
+    padding: 60px 5% !important;
+  }
+
+  /* Adjust hero area */
+  #hero {
+    padding-top: calc(var(--nav-h) + 2rem) !important;
+    padding-bottom: 3rem !important;
+  }
+  .hero-h1 {
+    font-size: clamp(2rem, 8vw, 3.2rem) !important;
+  }
+  .hero-quote {
+    margin-bottom: 1.5rem !important;
+  }
+  .timeline-wrap {
+    margin-top: 1.5rem !important;
+  }
+  .timeline-card {
+    padding: 1rem !important;
+  }
+  .tc-canvas {
+    margin: 0.5rem 0 !important;
+  }
+  .m-label {
+    font-size: 0.42rem !important;
+    padding: 1px 3px !important;
+    white-space: normal !important;
+    max-width: 50px !important;
+    text-align: center !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Stacking columns */
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Stack credential cards fan-out on hover */
+  .stack-wrap {
+    max-width: 250px !important;
+  }
+  .stack-wrap:hover .stack-card.s1 {
+    transform: rotate(-12deg) translateX(-35px) !important;
+  }
+  .stack-wrap:hover .stack-card.s3 {
+    transform: rotate(12deg) translateX(35px) !important;
+  }
+
+  /* Stack gallery grids */
+  .gallery-grid.g2, .gallery-grid.g3 {
+    grid-template-columns: 1fr !important;
+  }
+  .gallery-item {
+    height: 180px !important;
+  }
+
+  /* Polaroid layout */
+  .polaroid-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Readiness card adjustments */
+  .readiness-card {
+    padding: 1.25rem !important;
+  }
+  .ri-title {
+    font-size: 0.85rem !important;
+  }
+  .ri-sub {
+    font-size: 0.72rem !important;
+  }
+}
 </style>
 </head>
 <body>

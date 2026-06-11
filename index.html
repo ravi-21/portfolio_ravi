@@ -1447,11 +1447,11 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
   btn.disabled = true;
 
   const templateParams = {
+    title: document.getElementById("subject").value,
     from_name: document.getElementById("name").value,
-    from_email: document.getElementById("email").value,
-    subject: document.getElementById("subject").value,
+    time: new Date().toLocaleString(),
     message: document.getElementById("message").value,
-    to_email: "ravidas.gupta99@gmail.com"
+    email: document.getElementById("email").value
   };
 
   // Send the email using your Service ID and Template ID

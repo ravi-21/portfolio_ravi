@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Journey — Ravi Das Gupta</title>
+<meta name="description" content="The story of Ravi Das Gupta — skills, leadership, empathy, and a journey built on purpose."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+
+/* ══════════════════════════════════════════
+   ROOT
+══════════════════════════════════════════ */
+:root {
+  --cream:     #F7F3ED;
+  --cream2:    #EDE6DB;
+  --brown-dark:#3B2517;
+  --brown-mid: #7A5040;
+  --gold:      #C9962A;
+  --gold-light:#E8C060;
+  --text-body: #2E1F14;
+  --text-muted:#7A6355;
+  --white:     #FFFFFF;
+  --shadow:    0 8px 40px rgba(60,30,10,0.10);
+  --shadow-lg: 0 24px 64px rgba(60,30,10,0.18);
+  --radius:    20px;
+  --nav-h:     62px;
+  --font-d:    'Playfair Display', serif;
+  --font-b:    'DM Sans', sans-serif;
+  --font-m:    'DM Mono', monospace;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); color:var(--text-body); font-family:var(--font-b); overflow-x:hidden; }
+::selection { background:rgba(201,150,42,.22); }
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:var(--cream2); }
+::-webkit-scrollbar-thumb { background:var(--brown-mid); border-radius:3px; }
+
+/* ══════════════════════════════════════════
+   NAV
+══════════════════════════════════════════ */
+#navbar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  height:var(--nav-h); display:flex; align-items:center;
+  justify-content:space-between; padding:0 6%;
+  background:rgba(247,243,237,0.94); backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(92,61,46,0.10);
+  transition:box-shadow .3s;
+}
+#navbar.scrolled { box-shadow:0 4px 28px rgba(60,30,10,.09); }
+.nav-logo {
+  font-family:var(--font-d); font-size:1.45rem; font-weight:900;
+  color:var(--brown-dark); letter-spacing:-.5px; text-decoration:none;
+}
+.nav-logo span { color:var(--gold); }
+.btn-return {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:8px 22px; background:transparent;
+  border:1.5px solid var(--gold); color:var(--gold);
+  font-weight:600; font-size:.78rem; border-radius:50px;
+  text-decoration:none; letter-spacing:.5px; transition:all .25s;
+}
+.btn-return:hover { background:var(--gold); color:var(--brown-dark); transform:translateY(-2px); }
+
+/* ══════════════════════════════════════════
+   SHARED SECTION BASE
+══════════════════════════════════════════ */
+.section {
+  padding: 100px 8%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-full {
+  padding: 100px 8%;
+}
+.section-full.light  { background: var(--cream); }
+.section-full.cream2 { background: var(--cream2); }
+.section-full.dark   { background: var(--brown-dark); color:var(--cream); }
+
+#ch1, #ch4 {
+  padding: 160px 8%;
+}
+#ch3 {
+  padding: 130px 8%;
+}
+
+/* ══════════════════════════════════════════
+   SHARED GRID LAYOUT
+══════════════════════════════════════════ */
+.grid-2 {
+  display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;
+  max-width:1160px; margin:0 auto;
+}
+.grid-2.flip { direction:rtl; }
+.grid-2.flip > * { direction:ltr; }
+
+/* ══════════════════════════════════════════
+   SHARED TEXT BLOCKS
+══════════════════════════════════════════ */
+.eyebrow {
+  font-family:var(--font-m); font-size:.82rem; letter-spacing:4px;
+  color:var(--gold); text-transform:uppercase; margin-bottom:1.2rem;
+  margin-top:-35px; display:block;
+}
+.eyebrow.light { color:var(--gold-light); }
+.big-title {
+  font-family:var(--font-d); font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:900; line-height:1.1; letter-spacing:-1px;
+  color:var(--brown-dark); margin-bottom:1.2rem;
+}
+.big-title em { font-style:italic; color:var(--gold); }
+.big-title.light { color:var(--cream); }
+.big-title.light em { color:var(--gold-light); }
+.body-text {
+  font-size:.95rem; line-height:1.85; color:var(--text-muted);
+  margin-bottom:.9rem; text-align:justify;
+}
+.body-text.light { color:rgba(247,243,237,.72); }
+
+/* ══════════════════════════════════════════
+   SKILL BADGE ROW
+══════════════════════════════════════════ */
+.badge-row {
+  display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1.6rem;
+}
+.badge-row.nowrap {
+  flex-wrap:nowrap;
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none; -ms-overflow-style:none;
+}
+.badge-row.nowrap::-webkit-scrollbar {
+  display:none;
+}
+.badge {
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:5px 12px; border-radius:50px; font-size:.7rem;
+  font-weight:600; letter-spacing:.3px; border:1.5px solid;
+  transition:all .25s;
+  white-space:nowrap;
+}
+.badge.gold   { border-color:var(--gold); color:var(--gold); background:rgba(201,150,42,.08); }
+.badge.cream  { border-color:rgba(201,150,42,.4); color:var(--gold-light); background:rgba(201,150,42,.07); }
+.badge:hover  { transform:translateY(-2px); box-shadow:0 4px 12px rgba(201,150,42,.2); }
+
+/* ══════════════════════════════════════════
+   VISUAL CARD (document / photo wrappers)
+══════════════════════════════════════════ */
+.photo-card {
+  position:relative; border-radius:var(--radius); overflow:hidden;
+  box-shadow:var(--shadow-lg); cursor:pointer;
+}
+.photo-card img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
+}
+.photo-card:hover img { transform:scale(1.04); }
+
+.engineer-license-img {
+  width:100%; max-width:480px; height:auto; display:block;
+  border-radius:16px; box-shadow:0 12px 35px rgba(0,0,0,.12);
+  border:1.5px solid rgba(201,150,42,.2);
+  transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+.engineer-license-img:hover {
+  box-shadow:0 24px 50px rgba(201,150,42,.25);
+}
+.photo-card-caption {
+  position:absolute; bottom:0; left:0; right:0;
+  background:linear-gradient(to top,rgba(59,37,23,.92),transparent);
+  padding:2rem 1.8rem 1.4rem; color:var(--cream);
+  pointer-events:none;
+}
+.photo-card-caption .tag {
+  font-family:var(--font-m); font-size:.62rem; color:var(--gold);
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:.4rem; display:block;
+}
+.photo-card-caption h4 { font-family:var(--font-d); font-size:1rem; font-weight:700; margin-bottom:.2rem; }
+.photo-card-caption p  { font-size:.8rem; color:rgba(247,243,237,.6); line-height:1.45; }
+
+/* ══════════════════════════════════════════
+   CREDENTIAL STACK (fan-out)
+══════════════════════════════════════════ */
+.stack-wrap {
+  position:relative; height:340px; width:100%; max-width:300px;
+  margin:0 auto; perspective:1000px;
+}
+.stack-card {
+  position:absolute; width:100%; height:100%; border-radius:14px;
+  overflow:hidden; box-shadow:0 14px 36px rgba(0,0,0,.13);
+  transition:all .5s cubic-bezier(.25,.8,.25,1);
+  cursor:pointer; background:var(--white); border:1px solid rgba(92,61,46,.1);
+}
+.stack-card img  { width:100%; height:100%; object-fit:cover; display:block; }
+.stack-card::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(28,20,16,.88),transparent 45%);
+  opacity:0; transition:opacity .3s;
+}
+.stack-card:hover::after { opacity:1; }
+.stack-badge {
+  position:absolute; bottom:.9rem; left:.9rem; right:.9rem;
+  font-family:var(--font-m); font-size:.6rem; color:#fff;
+  letter-spacing:1px; text-transform:uppercase; z-index:2;
+  opacity:0; transform:translateY(8px); transition:all .3s;
+}
+.stack-card:hover .stack-badge { opacity:1; transform:translateY(0); }
+.stack-card.s1 { transform:rotate(-6deg); z-index:3; }
+.stack-card.s2 { transform:rotate(2deg) translateX(10px); z-index:2; }
+.stack-card.s3 { transform:rotate(8deg) translateX(20px); z-index:1; }
+.stack-wrap:hover .stack-card.s1 { transform:rotate(-18deg) translateX(-55px); }
+.stack-wrap:hover .stack-card.s2 { transform:rotate(0deg); }
+.stack-wrap:hover .stack-card.s3 { transform:rotate(18deg) translateX(55px); }
+.stack-hint {
+  font-family:var(--font-m); font-size:.58rem; color:var(--text-muted);
+  text-align:center; margin-top:1.6rem; letter-spacing:1px; text-transform:uppercase;
+}
+
+/* ══════════════════════════════════════════
+   POLAROID GRID
+══════════════════════════════════════════ */
+.polaroid-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem; }
+.polaroid {
+  background:var(--white); padding:8px 8px 22px;
+  box-shadow:0 10px 28px rgba(0,0,0,.07);
+  border:1px solid rgba(92,61,46,.06);
+  cursor:pointer; transition:all .38s;
+}
+.polaroid.r1 { transform:rotate(-3.5deg); }
+.polaroid.r2 { transform:rotate(2.5deg); }
+.polaroid:hover {
+  transform:translateY(-10px) scale(1.05) rotate(0deg);
+  z-index:10; box-shadow:0 26px 52px rgba(60,30,10,.14);
+  border-color:var(--gold);
+}
+.polaroid-img { aspect-ratio:1.2/1; overflow:hidden; background:var(--cream2); }
+.polaroid-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.polaroid-cap {
+  margin-top:7px; font-family:var(--font-d); font-style:italic;
+  font-size:.7rem; color:var(--brown-dark); text-align:center;
+  overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+}
+
+/* ══════════════════════════════════════════
+   DOC CARDS
+══════════════════════════════════════════ */
+.doc-card {
+  background:var(--white); border:1px solid rgba(92,61,46,.1);
+  border-radius:16px; padding:1.3rem; box-shadow:var(--shadow);
+  cursor:pointer; transition:all .3s; margin-bottom:1rem;
+}
+.doc-card:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.doc-header { display:flex; align-items:center; gap:.8rem; margin-bottom:.7rem; }
+.doc-icon { color:var(--gold); font-size:1.2rem; flex-shrink:0; }
+.doc-name { font-family:var(--font-d); font-size:.82rem; font-weight:700; color:var(--brown-dark); line-height:1.25; }
+.doc-sub  { font-size:.68rem; color:var(--text-muted); margin-top:2px; }
+.doc-preview {
+  font-size:.74rem; color:var(--text-muted); line-height:1.6;
+  overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+}
+
+/* ══════════════════════════════════════════
+   GALLERY GRID
+══════════════════════════════════════════ */
+.gallery-grid { display:grid; gap:1rem; }
+.gallery-grid.g2 { grid-template-columns:1fr 1fr; }
+.gallery-grid.g3 { grid-template-columns:1fr 1fr 1fr; }
+.gallery-item {
+  border-radius:14px; overflow:hidden; box-shadow:var(--shadow);
+  position:relative; cursor:pointer;
+}
+.gallery-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
+.gallery-item:hover img { transform:scale(1.06); }
+.gallery-item .ov {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(59,37,23,.85),transparent 50%);
+  opacity:0; transition:opacity .35s; display:flex; align-items:flex-end; padding:1rem;
+}
+.gallery-item:hover .ov { opacity:1; }
+.ov-text { color:var(--cream); font-size:.8rem; font-weight:500; }
+.ov-text span { display:block; font-family:var(--font-m); font-size:.6rem; color:var(--gold); letter-spacing:2px; margin-bottom:.15rem; text-transform:uppercase; }
+
+/* ══════════════════════════════════════════
+   STAT STRIP
+══════════════════════════════════════════ */
+.stat-strip {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:1px; background:rgba(201,150,42,.15); margin-top:0;
+}
+.stat-cell { padding:2.2rem 1.5rem; text-align:center; background:var(--brown-dark); }
+.stat-num { font-family:var(--font-d); font-size:2.5rem; font-weight:900; color:var(--gold); line-height:1; }
+.stat-lbl { font-size:.68rem; color:rgba(247,243,237,.45); letter-spacing:2px; text-transform:uppercase; margin-top:.3rem; }
+
+/* ══════════════════════════════════════════
+   QUOTE BLOCK
+══════════════════════════════════════════ */
+.quote-block {
+  padding:5rem 8%; text-align:center; background:var(--cream2); position:relative; overflow:hidden;
+}
+.quote-block::before {
+  content:'"'; position:absolute; top:-2rem; left:4%;
+  font-family:var(--font-d); font-size:18rem; color:rgba(92,61,46,.05); line-height:1; pointer-events:none;
+}
+.quote-text {
+  font-family:var(--font-d); font-size:clamp(1.3rem,3vw,2.1rem);
+  font-weight:700; font-style:italic; color:var(--brown-dark);
+  line-height:1.5; max-width:800px; margin:0 auto 1.2rem; position:relative; z-index:1;
+}
+.quote-divider { width:50px; height:2px; background:var(--gold); margin:.7rem auto; }
+.quote-attr {
+  font-family:var(--font-m); font-size:.72rem; color:var(--brown-mid);
+  letter-spacing:2.5px; text-transform:uppercase; position:relative; z-index:1;
+}
+
+/* ══════════════════════════════════════════
+   CERT CARDS (scrum / certs)
+══════════════════════════════════════════ */
+.cert-card {
+  background:rgba(255,255,255,.06); border-radius:14px; padding:1.5rem;
+  border:1px solid rgba(201,150,42,.2); cursor:pointer; transition:all .3s;
+  display:flex; align-items:center; gap:1rem; text-decoration:none;
+}
+.cert-card:hover { border-color:var(--gold-light); background:rgba(201,150,42,.1); transform:translateX(6px); }
+.cert-icon {
+  width:44px; height:44px; border-radius:12px; background:var(--gold);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.cert-icon i { color:var(--brown-dark); font-size:1rem; }
+.cert-name { font-family:var(--font-d); font-weight:700; color:var(--cream); font-size:.9rem; }
+.cert-provider { font-family:var(--font-m); font-size:.65rem; color:var(--gold-light); letter-spacing:1px; margin-top:2px; }
+.cert-stack { display:flex; flex-direction:column; gap:.8rem; }
+
+/* ══════════════════════════════════════════
+   HERO — TIMELINE CARD
+══════════════════════════════════════════ */
+#hero {
+  min-height:100vh; background:var(--brown-dark);
+  padding: calc(var(--nav-h) + 5rem) 8% 5rem;
+  display:flex; align-items:center; position:relative; overflow:hidden;
+}
+.hero-bg-word {
+  position:absolute; bottom:-5rem; right:-2rem;
+  font-family:var(--font-d); font-size:clamp(8rem,20vw,20rem); font-weight:900;
+  color:rgba(255,255,255,.03); pointer-events:none; user-select:none; line-height:1; letter-spacing:-6px;
+}
+.hero-grid {
+  display:grid; grid-template-columns:1fr 1.2fr; gap:5%;
+  align-items:center; max-width:1280px; margin:0 auto; width:100%; position:relative; z-index:2;
+}
+.hero-eyebrow {
+  font-family:var(--font-m); font-size:.82rem; letter-spacing:5px;
+  color:var(--gold-light); text-transform:uppercase; margin-bottom:1.5rem;
+  margin-top:-35px; display:block;
+  opacity:0; animation:fadeUp .6s .1s forwards;
+}
+.hero-h1 {
+  font-family:var(--font-d); font-size:clamp(2.8rem,5.5vw,4.8rem);
+  font-weight:900; line-height:1.05; letter-spacing:-1.5px; color:var(--cream);
+  margin-bottom:1.4rem; opacity:0; animation:fadeUp .7s .25s forwards;
+}
+.hero-h1 em { font-style:italic; color:var(--gold-light); }
+.hero-quote {
+  font-family:var(--font-d); font-style:italic; font-size:1rem; line-height:1.75;
+  color:rgba(247,243,237,.75); border-left:2px solid var(--gold-light); padding-left:1.2rem;
+  margin-bottom:2rem; max-width:480px; opacity:0; animation:fadeUp .7s .4s forwards;
+  text-align:justify;
+}
+.hero-pills {
+  display:flex; flex-wrap:wrap; gap:.55rem;
+  opacity:0; animation:fadeUp .7s .55s forwards;
+}
+.pill {
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:7px 16px; border-radius:50px; font-size:.73rem;
+  font-weight:500; text-decoration:none; letter-spacing:.3px;
+  border:1.5px solid; transition:all .25s;
+}
+.pill.solid  { background:var(--gold); border-color:var(--gold); color:var(--brown-dark); font-weight:700; }
+.pill.outline { background:transparent; border-color:rgba(92,61,46,.25); color:var(--text-muted); }
+.pill.outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
+#hero .pill.outline { border-color:rgba(247,243,237,.25); color:rgba(247,243,237,.75); }
+#hero .pill.outline:hover { border-color:var(--gold-light); color:var(--gold-light); }
+
+/* ── Timeline Card ── */
+.timeline-wrap {
+  opacity:0; animation:fadeUp .9s .4s forwards;
+  margin-top:-40px;
+}
+.timeline-card {
+  background:var(--white); border:1px solid rgba(201,150,42,.25);
+  border-radius:24px; padding:1.3rem 1.8rem 1rem;
+  box-shadow: 0 20px 60px rgba(92,61,46,.12), 0 2px 8px rgba(92,61,46,.06);
+  transition:box-shadow .4s;
+}
+.timeline-card:hover { box-shadow:0 30px 70px rgba(92,61,46,.18); }
+.tc-header { margin-bottom:0.5rem; }
+.tc-title { font-family:var(--font-d); font-size:0.95rem; font-weight:700; color:var(--brown-dark); }
+.tc-sub { font-family:var(--font-m); font-size:.56rem; color:var(--text-muted); letter-spacing:.5px; margin-top:.15rem; }
+
+/* SVG canvas */
+.tc-canvas { position:relative; width:100%; aspect-ratio:520/300; margin:1rem 0; }
+.tc-path-svg { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2; }
+.path-back { stroke:rgba(201,150,42,.15); stroke-width:2.5; fill:none; }
+.path-dash {
+  stroke:var(--gold-light); stroke-width:2.5; stroke-dasharray:6,4; fill:none;
+  animation:dashFlow 25s linear infinite;
+}
+@keyframes dashFlow { to { stroke-dashoffset:-100; } }
+
+/* Victory Cup Animation */
+.victory-cup {
+  position: absolute;
+  left: 95.19%;
+  top: 46.67%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  color: #2ecc71; /* Green color */
+  font-size: 1.8rem;
+  z-index: 10;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(46,204,113,0.6));
+}
+.victory-cup.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  animation: cupPulse 1.2s infinite alternate ease-in-out;
+}
+@keyframes cupPulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-50%, -50%) scale(1.3); filter: drop-shadow(0 0 16px rgba(46,204,113,0.95)); }
+}
+
+/* Milestone nodes */
+.m-node {
+  position:absolute; transform:translate(-50%,-50%);
+  z-index:5; cursor:pointer; display:flex; flex-direction:column; align-items:center;
+}
+.m-dot {
+  width:13px; height:13px; border-radius:50%;
+  background:var(--cream2); border:2.5px solid var(--gold);
+  position:relative; transition:all .3s cubic-bezier(.25,.8,.25,1);
+  box-shadow:0 0 6px rgba(201,150,42,.3);
+}
+.m-ring {
+  position:absolute; inset:-7px; border:1px solid var(--gold-light);
+  border-radius:50%; opacity:0; transition:all .3s;
+}
+.m-label {
+  font-family:var(--font-m); font-size:.5rem; color:var(--text-muted);
+  margin-top:5px; letter-spacing:.5px; text-transform:uppercase;
+  background:rgba(247,243,237,.9); padding:2px 5px;
+  border-radius:3px; white-space:nowrap; pointer-events:none;
+  transition:all .3s; border:1px solid transparent;
+}
+.m-node:hover .m-dot,
+.m-node.active .m-dot { background:var(--gold); border-color:var(--brown-dark); transform:scale(1.35); box-shadow:0 0 12px rgba(201,150,42,.5); }
+.m-node:hover .m-ring,
+.m-node.active .m-ring { opacity:1; animation:nodePop 1.8s infinite ease-out; }
+.m-node:hover .m-label,
+.m-node.active .m-label { color:var(--gold); border-color:rgba(201,150,42,.4); }
+
+.m-node.destination .m-dot { background:var(--gold); border-color:var(--white); box-shadow:0 0 14px rgba(201,150,42,.6); }
+.m-node.destination .m-ring { border-color:var(--gold); opacity:.7; animation:nodePop 2s infinite ease-out; }
+
+@keyframes nodePop { 0%{transform:scale(.9);opacity:1;} 100%{transform:scale(2);opacity:0;} }
+
+/* Special ring-pop: Engineer (start) — green subtle */
+.m-node.blink-start .m-dot {
+  background:#2ecc71; border-color:#27ae60;
+  box-shadow:0 0 8px rgba(46,204,113,.45);
+}
+.m-node.blink-start .m-ring {
+  opacity:1; border-color:#2ecc71;
+  animation: nodePop 2.2s infinite ease-out;
+}
+
+/* Special ring-pop: Scrum (mid-journey) — blue subtle */
+.m-node.blink-mid .m-dot {
+  background:#3498db; border-color:#2980b9;
+  box-shadow:0 0 8px rgba(52,152,219,.45);
+}
+.m-node.blink-mid .m-ring {
+  opacity:1; border-color:#3498db;
+  animation: nodePop 2.6s infinite ease-out;
+}
+
+/* Reflection panel */
+.tc-reflect {
+  border-top:1px solid rgba(92,61,46,.1); padding-top:0.5rem;
+  min-height:55px; transition:opacity .2s;
+}
+.ref-title { font-family:var(--font-d); font-size:.82rem; font-weight:700; color:var(--gold); margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.ref-skills { font-size:.72rem; color:var(--brown-mid); margin-bottom:.4rem; line-height:1.5; }
+.ref-skills strong { color:var(--text-body); }
+.ref-quote { font-family:var(--font-d); font-size:.74rem; color:var(--text-muted); font-style:italic; line-height:1.45; }
+
+/* ══════════════════════════════════════════
+   CHAPTER SEPARATOR
+══════════════════════════════════════════ */
+.sep {
+  display:flex; align-items:center; gap:1.5rem;
+  padding:0 8%; height:2px; margin:0;
+}
+.sep-line { flex:1; height:1px; background:rgba(92,61,46,.1); }
+.sep-dot  { width:8px; height:8px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+/* ══════════════════════════════════════════
+   DESTINATION (CTA) SECTION
+══════════════════════════════════════════ */
+.cta-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:5rem;
+  align-items:center; max-width:1100px; margin:0 auto;
+}
+.readiness-card {
+  background:var(--white); border:1px solid rgba(201,150,42,.2);
+  border-radius:var(--radius); padding:2.2rem; box-shadow:var(--shadow);
+}
+.readiness-item {
+  display:flex; align-items:center; gap:1rem;
+  padding:.9rem 0; border-bottom:1px solid rgba(92,61,46,.07);
+}
+.readiness-item:last-child { border-bottom:none; }
+.ri-icon { width:40px; height:40px; border-radius:10px; background:rgba(201,150,42,.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ri-icon i { color:var(--gold); font-size:.9rem; }
+.ri-title { font-family:var(--font-d); font-size:.9rem; font-weight:700; color:var(--brown-dark); }
+.ri-sub   { font-size:.75rem; color:var(--text-muted); }
+.cta-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+.btn-cta-primary {
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:13px 28px; background:var(--brown-dark); color:var(--cream);
+  font-weight:600; font-size:.85rem; border-radius:50px;
+  text-decoration:none; letter-spacing:.4px; transition:all .25s;
+}
+.btn-cta-primary:hover { background:var(--gold); color:var(--brown-dark); transform:translateY(-3px); box-shadow:0 12px 28px rgba(201,150,42,.35); }
+.btn-cta-outline {
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:13px 28px; background:transparent;
+  border:1.5px solid var(--gold); color:var(--gold);
+  font-weight:600; font-size:.85rem; border-radius:50px;
+  text-decoration:none; letter-spacing:.4px; transition:all .25s;
+}
+.btn-cta-outline:hover { background:var(--gold); color:var(--brown-dark); transform:translateY(-3px); }
+.profile-mini {
+  display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;
+}
+.profile-mini img {
+  width:64px; height:64px; border-radius:50%; object-fit:cover;
+  border:2px solid var(--gold); object-position:top center;
+}
+.profile-mini h4 { font-family:var(--font-d); font-size:1.05rem; font-weight:700; color:var(--brown-dark); }
+.profile-mini span { font-family:var(--font-m); font-size:.62rem; color:var(--gold); letter-spacing:1px; text-transform:uppercase; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer {
+  background:var(--brown-dark); color:rgba(247,243,237,.4);
+  text-align:center; padding:2rem 2.5rem; font-size:.82rem;
+}
+footer strong { color:var(--gold); font-family:var(--font-d); font-size:1rem; }
+footer .tagline { font-style:italic; margin:.3rem 0 1rem; }
+.footer-icons { display:flex; gap:1rem; justify-content:center; margin-top:.8rem; }
+.footer-icons a { color:rgba(247,243,237,.4); font-size:1rem; text-decoration:none; transition:color .25s; }
+.footer-icons a:hover { color:var(--gold); }
+
+/* ══════════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════════ */
+.lightbox {
+  position:fixed; inset:0; background:rgba(28,20,16,.96);
+  z-index:9999; display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .3s; padding:2rem;
+}
+.lightbox.open { opacity:1; pointer-events:all; }
+.lightbox img { max-width:90vw; max-height:88vh; border-radius:12px; box-shadow:0 40px 100px rgba(0,0,0,.8); object-fit:contain; }
+.lb-close {
+  position:absolute; top:1.5rem; right:1.5rem; width:46px; height:46px;
+  border-radius:50%; background:rgba(255,255,255,.12); border:none;
+  color:#fff; font-size:1.2rem; cursor:pointer; display:flex;
+  align-items:center; justify-content:center; transition:background .25s;
+}
+.lb-close:hover { background:var(--gold); color:var(--brown-dark); }
+.lb-caption {
+  position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%);
+  text-align:center; color:rgba(255,255,255,.65); font-size:.85rem; max-width:480px;
+}
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════ */
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+.reveal        { opacity:0; transform:translateY(30px); transition:opacity .7s ease,transform .7s ease; }
+.reveal-left   { opacity:0; transform:translateX(-40px); transition:opacity .7s ease,transform .7s ease; }
+.reveal-right  { opacity:0; transform:translateX(40px); transition:opacity .7s ease,transform .7s ease; }
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible { opacity:1; transform:none; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:980px){
+  .hero-grid, .grid-2, .cta-grid { grid-template-columns:1fr; gap:3rem; }
+  .grid-2.flip { direction:ltr; }
+  .stat-strip  { grid-template-columns:1fr 1fr; }
+  .gallery-grid.g3 { grid-template-columns:1fr 1fr; }
+  .polaroid-grid { grid-template-columns:1fr 1fr; }
+  #hero { padding-top:calc(var(--nav-h) + 3rem); }
+  #ch1, #ch3, #ch4 { padding: 100px 8%; }
+}
+@media(max-width:600px){
+  .gallery-grid.g2, .gallery-grid.g3 { grid-template-columns:1fr; }
+  .stat-strip { grid-template-columns:1fr 1fr; }
+  .polaroid-grid { grid-template-columns:1fr; max-width:240px; margin:0 auto; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">R<span>.</span>D<span>.</span>G&nbsp;&nbsp;Portfolio</a>
+  <a href="index.html" class="btn-return"><i class="fas fa-arrow-left"></i> Return to Portfolio</a>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     HERO — INTERACTIVE TIMELINE
+════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid">
+
+    <!-- Left: Text -->
+    <div>
+      <div class="hero-eyebrow">A Story of Growth &amp; Purpose</div>
+      <h1 class="hero-h1">Technology,<br><em>Empathy</em><br>&amp; <em>Leadership</em></h1>
+      <p class="hero-quote">"I didn't travel a distance. I traveled a transformation — from engineer to servant leader, from code to compassion."</p>
+      <div class="hero-pills">
+        <a href="#ch1" class="pill solid"><i class="fas fa-microchip"></i> Engineering</a>
+        <a href="#ch2" class="pill outline"><i class="fas fa-headset"></i> IT &amp; Support</a>
+        <a href="#ch5" class="pill outline"><i class="fas fa-sync-alt"></i> Agile &amp; Ops</a>
+        <a href="#ch3" class="pill outline"><i class="fas fa-users-cog"></i> Leadership &amp; People Management</a>
+        <a href="#ch4" class="pill outline"><i class="fas fa-chart-line"></i> MBA &amp; Strategy</a>
+      </div>
+    </div>
+
+    <!-- Right: Timeline Card -->
+    <div class="timeline-wrap">
+      <div class="timeline-card">
+        <div class="tc-header">
+          <div class="tc-title"><i class="fas fa-route" style="color:var(--gold);margin-right:.5rem;font-size:.9rem;"></i>Career Path</div>
+          <div class="tc-sub">Where the integration of technology, leadership, and humanity begins</div>
+        </div>
+
+        <div class="tc-canvas">
+          <!-- Grid overlay -->
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,150,42,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,150,42,0.04) 1px,transparent 1px);background-size:24px 24px;opacity:.8;border-radius:8px;"></div>
+
+          <!-- SVG Path -->
+          <svg class="tc-path-svg" viewBox="0 0 520 300" preserveAspectRatio="xMidYMid meet">
+            <path id="journeyPath" class="path-back" d="M 20 220 Q 70 40, 110 110 T 180 230 T 250 70 T 330 143 T 375 210 T 420 144 T 495 142"/>
+            <path class="path-dash" d="M 20 220 Q 70 40, 110 110 T 180 230 T 250 70 T 330 143 T 375 210 T 420 144 T 495 142"/>
+            <g id="planeGroup" filter="drop-shadow(0 0 5px var(--gold))" style="transform-box: fill-box; transform-origin: center;">
+              <path d="M-10,-7 L12,0 L-10,7 L-4,1 Z" fill="var(--gold)" />
+              <path d="M-4,1 L12,0" stroke="rgba(59,37,23,0.35)" stroke-width="0.8" />
+            </g>
+          </svg>
+
+          <!-- Milestone Nodes -->
+          <div class="m-node blink-start" style="left:3.85%;top:73.33%;" data-id="1">
+            <div class="m-dot"><div class="m-ring"></div></div>
+            <div class="m-label">Engineer</div>
+          </div>
+          <div class="m-node" style="left:21.15%;top:36.67%;" data-id="2">
+            <div class="m-dot"><div class="m-ring"></div></div>
+            <div class="m-label">IT Pro</div>
+          </div>
+          <div class="m-node" style="left:34.62%;top:76.67%;" data-id="3">
+            <div class="m-dot"><div class="m-ring"></div></div>
+            <div class="m-label">TA Lead</div>
+          </div>
+          <div class="m-node" style="left:48.08%;top:23.33%;" data-id="4">
+            <div class="m-dot"><div class="m-ring"></div></div>
+            <div class="m-label">MBA</div>
+          </div>
+          <div class="m-node" style="left:63.46%;top:51.67%;" data-id="5">
+            <div class="m-dot"><div class="m-ring"></div></div>
+            <div class="m-label">Operations</div>
+          </div>
+          <div class="m-node blink-mid" style="left:80.77%;top:47.67%;" data-id="6">
+            <div class="m-dot"><div class="m-ring"></div></div>
+            <div class="m-label">Scrum</div>
+          </div>
+          <div class="m-node destination" style="left:95.19%;top:47.00%;" data-id="7">
+            <div class="m-dot"><div class="m-ring"></div></div>
+            <div class="m-label">Your Team</div>
+          </div>
+
+          <!-- Victory Cup -->
+          <div id="victoryCup" class="victory-cup"><i class="fas fa-trophy"></i></div>
+        </div>
+
+        <!-- Reflection Panel -->
+        <div class="tc-reflect" id="reflectPanel" style="min-height:45px; margin-top:0.4rem;">
+          <div class="ref-quote" id="refQuote" style="text-align:center;">"Every great system is built on structure — and every structure must ultimately serve people."</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CH 1 — THE ENGINEERING MINDSET
+     Cream2 background
+════════════════════════════════════════════ -->
+<div class="section-full cream2" id="ch1">
+  <div class="grid-2 reveal">
+
+    <!-- Left: Text -->
+    <div>
+      <div class="eyebrow">Chapter One · Technical Foundation</div>
+      <h2 class="big-title">The <em>Engineering</em><br>Mindset</h2>
+      <p class="body-text">I earned two Bachelor's degrees, <strong>Computer Engineering</strong> and <strong>Mathematics</strong>, building the ability to break down complexity into clarity.</p>
+      <p class="body-text">Recognized by the <strong>Nepal Engineering Council</strong>, my licence as a <strong>Category A Computer Engineer</strong> is not just a credential. It is a lifelong commitment to technical integrity.</p>
+      <div class="badge-row nowrap">
+        <span class="badge gold"><i class="fas fa-brain"></i> Critical Thinking</span>
+        <span class="badge gold"><i class="fas fa-cogs"></i> Systems Architecture</span>
+        <span class="badge gold"><i class="fas fa-square-root-alt"></i> Analytical Logic</span>
+        <span class="badge gold"><i class="fas fa-shield-alt"></i> Integrity</span>
+      </div>
+    </div>
+
+    <!-- Right: Single Photo of Registered Computer Engineer -->
+    <div style="display:flex;justify-content:center;align-items:center;width:100%;">
+      <img class="engineer-license-img" src="Journey/Registered_Computer_Engineer.png" alt="Registered Category A Computer Engineer (Nepal Engineering Council, Reg. No. 8631)"/>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     CH 2 — THE HUMAN CONNECTION
+     Light background
+════════════════════════════════════════════ -->
+<div class="section-full light" id="ch2">
+  <div class="grid-2 flip reveal">
+
+    <!-- Left (visually right because flip): Photo -->
+    <div class="photo-card" style="height:480px;" onclick="openLightbox('Journey/Ravi_BandB_Team.jpg','Frontline IT Support & Talent Sourcing at B&B Soft Tech')">
+      <img src="Journey/Ravi_BandB_Team.jpg" alt="Ravi at B&B Soft Tech"/>
+      <div class="photo-card-caption">
+        <span class="tag">2021 · Kathmandu</span>
+        <h4>Frontline IT &amp; Sourcing</h4>
+        <p>Where empathy meets execution.</p>
+      </div>
+    </div>
+
+    <!-- Right: Text -->
+    <div>
+      <div class="eyebrow">Chapter Two · IT Support &amp; TA Specialist</div>
+      <h2 class="big-title">The <em>Human</em><br>Connection</h2>
+      <p class="body-text">At <strong>B&amp;B Soft Tech</strong>, I listened deeply to every technical challenge, learning that true support is not about closing tickets but restoring confidence. I also led <strong>IT recruitment</strong>, where finding the right person for the right role proved that human insight accelerates technical pipelines and that <strong>human connection</strong> is often the most powerful technology of all.</p>
+      <div class="badge-row">
+        <span class="badge gold"><i class="fas fa-heart"></i> Active Listening</span>
+        <span class="badge gold"><i class="fas fa-tools"></i> Troubleshooting</span>
+        <span class="badge gold"><i class="fas fa-user-check"></i> Human Sourcing</span>
+        <span class="badge gold"><i class="fas fa-comment-dots"></i> Stakeholder Comms</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     CH 3 — TECHNICAL LEADERSHIP & CHANGE MGMT
+     Light cream2 background
+════════════════════════════════════════════ -->
+<div class="section-full cream2" id="ch3">
+  <div class="grid-2 reveal">
+
+    <!-- Left: Text -->
+    <div>
+      <div class="eyebrow">Chapter Three · Support &amp; TA Lead</div>
+      <h2 class="big-title">Leading with<br><em>Accountability</em></h2>
+      <p class="body-text">At the same company, I was <strong>promoted and stepped into leadership</strong>, guiding a team of professionals through meaningful operational change. I redesigned recruitment workflows, standardized escalation processes, and built structured interview frameworks in close collaboration with business unit leaders.</p>
+      <p class="body-text">The results followed naturally: <strong>faster hiring cycles</strong> and a significant drop in late-stage candidate drop-off. But what I learned runs deeper than metrics. Leading change is not about pushing process. It is about <strong>earning trust</strong>, one decision at a time.</p>
+      <div class="badge-row">
+        <span class="badge gold"><i class="fas fa-exchange-alt"></i> Change Management</span>
+        <span class="badge gold"><i class="fas fa-tasks"></i> ATS Optimization</span>
+        <span class="badge gold"><i class="fas fa-people-arrows"></i> Team Leadership</span>
+        <span class="badge gold"><i class="fas fa-balance-scale"></i> Accountability</span>
+      </div>
+    </div>
+
+    <!-- Right: Photos + Docs -->
+    <div>
+      <!-- Celebration photo -->
+      <div class="photo-card" style="height:260px;margin-bottom:1.2rem;" onclick="openLightbox('Journey/Ravi_BandB_Team_Quaterly_Success_celebration.jpg','Quarterly Success Celebration — B&B Soft Tech')">
+        <img src="Journey/Ravi_BandB_Team_Quaterly_Success_celebration.jpg" alt="Team celebration"/>
+        <div class="photo-card-caption">
+          <span class="tag">2022 · Team Lead</span>
+          <h4>Quarterly Success Celebration</h4>
+          <p>Building culture through recognition.</p>
+        </div>
+      </div>
+
+      <!-- Recommendation + Award side by side -->
+      <div class="doc-card" onclick="openLightbox('Journey/Ravi_Recommendation_Letter.jpg','HR Manager Recommendation Letter')">
+        <div class="doc-header">
+          <i class="fas fa-file-alt doc-icon"></i>
+          <div>
+            <div class="doc-name">HR Recommendation Letter</div>
+            <div class="doc-sub">Sabin Khanal, HR Manager · B&amp;B Soft Tech</div>
+          </div>
+        </div>
+        <div class="doc-preview">"Demonstrated unwavering commitment and earned deep trust."</div>
+      </div>
+      <div class="doc-card" onclick="openLightbox('Journey/B_and_B_Award_Recognition.jpg','Employee Recognition — B&B Soft Tech')">
+        <div class="doc-header">
+          <i class="fas fa-award doc-icon"></i>
+          <div>
+            <div class="doc-name">Employee Recognition</div>
+            <div class="doc-sub">B&amp;B Soft Tech</div>
+          </div>
+        </div>
+        <div class="doc-preview">Recognizing leadership and operational excellence.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     CH 4 — MBA: STRATEGY & ANALYTICS
+     Light background
+════════════════════════════════════════════ -->
+<div class="section-full light" id="ch4">
+  <div class="grid-2 flip reveal">
+
+    <!-- Left (visually right): Gallery -->
+    <div>
+      <div class="gallery-grid g2" style="margin-bottom:1rem;">
+        <div class="gallery-item" style="height:240px;" onclick="openLightbox('Journey/Raavi_MBA_UCW.jpeg','MBA Studies at University Canada West')">
+          <img src="Journey/Raavi_MBA_UCW.jpeg" alt="MBA at UCW"/>
+          <div class="ov"><div class="ov-text"><span>2024 · UCW</span>MBA Studies</div></div>
+        </div>
+        <div class="gallery-item" style="height:240px;" onclick="openLightbox('Journey/Ravi_Duiring_MBA_UCW_Happy_Momoments.jpg','Happy moments at UCW')">
+          <img src="Journey/Ravi_Duiring_MBA_UCW_Happy_Momoments.jpg" alt="Happy moments" style="object-position: left;"/>
+          <div class="ov"><div class="ov-text"><span>Culture</span>Connections</div></div>
+        </div>
+      </div>
+      <div class="gallery-grid g3">
+        <div class="gallery-item" style="height:160px;" onclick="openLightbox('Journey/MBA_UCW_Strategic_Management_Project.jpg','Strategic Management Project')">
+          <img src="Journey/MBA_UCW_Strategic_Management_Project.jpg" alt="Capstone"/>
+          <div class="ov"><div class="ov-text"><span>Capstone</span>Strategy</div></div>
+        </div>
+        <div class="gallery-item" style="height:160px;" onclick="openLightbox('Journey/Ravi_UCW-MBA_Convocation_.png','Convocation — University Canada West 2025')">
+          <img src="Journey/Ravi_UCW-MBA_Convocation_.png" alt="MBA Convocation"/>
+          <div class="ov"><div class="ov-text"><span>Oct 2025</span>Convocation</div></div>
+        </div>
+        <div class="gallery-item" style="height:160px;" onclick="openLightbox('Journey/UCW-MBA_Ravi_WIth professor grouup photo.jpg','Group photo with MBA professors')">
+          <img src="Journey/UCW-MBA_Ravi_WIth professor grouup photo.jpg" alt="Professors"/>
+          <div class="ov"><div class="ov-text"><span>Faculty</span>Mentorship</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Text -->
+    <div>
+      <div class="eyebrow">Chapter Four · MBA · University Canada West</div>
+      <h2 class="big-title">Strategy &amp;<br><em>Analytics</em></h2>
+      <p class="body-text">In 2024, I relocated to Vancouver to pursue an <strong>MBA in Business Analytics</strong> at University Canada West, driven by one question: how do organizations think, not just how systems work.</p>
+      <p class="body-text">Graduating in October 2025, I now hold three degrees across two continents, fluent in the language of engineers and the language of executives.</p>
+      <div class="badge-row nowrap">
+        <span class="badge gold"><i class="fas fa-chart-bar"></i> Business Analytics</span>
+        <span class="badge gold"><i class="fas fa-lightbulb"></i> Strategic Thinking</span>
+        <span class="badge gold"><i class="fas fa-search"></i> Critical Thinking</span>
+      </div>
+      <!-- MBA Certificate -->
+      <div style="margin-top:1.5rem;" class="doc-card" onclick="openLightbox('Journey/MBA_Certificate.jpg','MBA Degree Certificate — University Canada West')">
+        <div class="doc-header">
+          <i class="fas fa-graduation-cap doc-icon"></i>
+          <div>
+            <div class="doc-name">MBA Certificate — Business Analytics</div>
+            <div class="doc-sub">University Canada West · October 2025</div>
+          </div>
+        </div>
+        <div class="doc-preview">Master of Business Administration — officially conferred. Click to view.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     CH 5 — AGILE COORDINATION & OPERATIONS
+     Dark brown background
+════════════════════════════════════════════ -->
+<div class="section-full dark" id="ch5">
+  <div class="grid-2 reveal">
+
+    <!-- Left: Text -->
+    <div>
+      <div class="eyebrow light">Chapter Five · Vosyn AI &amp; 4PX Express</div>
+      <h2 class="big-title light">Agile <em>Leadership</em><br>&amp; Execution</h2>
+      <p class="body-text light">At <strong>Vosyn Inc.</strong>, I stepped into a Scrum Master role within a large distributed team, learning that great coordination is less about control and more about creating the conditions where people can do their best work.</p>
+      <p class="body-text light">At <strong>4PX Express</strong>, I maintained shipment data with a discipline that logistics demands, where every record matters and accountability is simply the standard, not the exception.</p>
+      <div class="badge-row">
+        <span class="badge cream"><i class="fas fa-sync-alt"></i> Agile Coordination</span>
+        <span class="badge cream"><i class="fas fa-users"></i> Servant Leadership</span>
+        <span class="badge cream"><i class="fas fa-chart-line"></i> Sprint Velocity</span>
+        <span class="badge cream"><i class="fas fa-database"></i> Data Integrity</span>
+        <span class="badge cream"><i class="fas fa-exchange-alt"></i> Change Management</span>
+      </div>
+    </div>
+
+    <!-- Right: Certs + Soft Skills -->
+    <div>
+      <div style="margin-bottom:1rem;font-family:var(--font-m);font-size:.62rem;color:rgba(247,243,237,.45);letter-spacing:3px;text-transform:uppercase;">Certifications</div>
+      <div class="cert-stack">
+        <a class="cert-card" href="Certs/Scrum Foundation Certificate-Ravi Das Gupta.pdf" target="_blank">
+          <div class="cert-icon"><i class="fas fa-sync-alt"></i></div>
+          <div>
+            <div class="cert-name">Scrum Foundation Professional</div>
+            <div class="cert-provider">CertiProf International</div>
+          </div>
+        </a>
+        <a class="cert-card" href="Certs/CertificateOfCompletion_Business Analysis Foundations.pdf" target="_blank">
+          <div class="cert-icon"><i class="fas fa-chart-bar"></i></div>
+          <div>
+            <div class="cert-name">Business Analysis Foundations</div>
+            <div class="cert-provider">LinkedIn Learning</div>
+          </div>
+        </a>
+        <a class="cert-card" href="Certs/Managing Project Stakeholders-Certificate.pdf" target="_blank">
+          <div class="cert-icon"><i class="fas fa-users"></i></div>
+          <div>
+            <div class="cert-name">Managing Project Stakeholders</div>
+            <div class="cert-provider">LinkedIn Learning</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Soft skills certs -->
+      <div style="margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
+        <div class="gallery-item" style="height:150px;" onclick="openLightbox('Certs/Cultivating_Meaninfful_Connections_Relationship_Management_Essentials.jpg','Relationship Management Certificate — B&B Soft Tech (company)')">
+          <img src="Certs/Cultivating_Meaninfful_Connections_Relationship_Management_Essentials.jpg" alt="Relationship Management Certificate — B&B Soft Tech (company)"/>
+          <div class="ov"><div class="ov-text"><span>B&B Soft Tech</span>Relationship Mgmt</div></div>
+        </div>
+        <div class="gallery-item" style="height:150px;" onclick="openLightbox('Certs/Unity_Forge_Building_Strong_Teams_Together.jpg','Building Strong Teams Together — B&B Soft Tech (company)')">
+          <img src="Certs/Unity_Forge_Building_Strong_Teams_Together.jpg" alt="Building Strong Teams Together — B&B Soft Tech (company)"/>
+          <div class="ov"><div class="ov-text"><span>B&B Soft Tech</span>Team Building</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     TEAM MOMENTS — POLAROID WALL
+     Light background
+════════════════════════════════════════════ -->
+<div class="section-full light">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3rem;" class="reveal">
+      <div class="eyebrow" style="text-align:center;">Culture &amp; Connection</div>
+      <h2 class="big-title" style="text-align:center;">Moments That<br><em>Shaped the Leadership</em></h2>
+    </div>
+    <div class="polaroid-grid reveal" style="max-width:900px;margin:0 auto;">
+      <div class="polaroid r1" onclick="openLightbox('Journey/B_and_B_Outing.JPG','B&B Soft Tech Company Outing')">
+        <div class="polaroid-img"><img src="Journey/B_and_B_Outing.JPG" alt="B&B Company Outing"/></div>
+        <div class="polaroid-cap">B&B Company Outing</div>
+      </div>
+      <div class="polaroid r2" onclick="openLightbox('Journey/B_and_B_Team.jpg','B&B Soft Tech Office Team')">
+        <div class="polaroid-img"><img src="Journey/B_and_B_Team.jpg" alt="B&B Office Team"/></div>
+        <div class="polaroid-cap">B&B Office Team</div>
+      </div>
+      <div class="polaroid r1" onclick="openLightbox('Journey/Ravi_UCW_Professors_Book_Collage.jpg','UCW MBA Professors Book Collage')">
+        <div class="polaroid-img"><img src="Journey/Ravi_UCW_Professors_Book_Collage.jpg" alt="UCW MBA Professors"/></div>
+        <div class="polaroid-cap">UCW Professors</div>
+      </div>
+      <div class="polaroid r2" onclick="openLightbox('Journey/Ravi_Group_PhotoUCW_MBA_Classes.jpg','UCW MBA Classroom Collaboration')">
+        <div class="polaroid-img"><img src="Journey/Ravi_Group_PhotoUCW_MBA_Classes.jpg" alt="UCW MBA Collaboration"/></div>
+        <div class="polaroid-cap">UCW MBA Cohort</div>
+      </div>
+      <div class="polaroid r1" onclick="openLightbox('Journey/B_and_B_Team_Celebration.jpg','B&B Soft Tech Team Celebration')">
+        <div class="polaroid-img"><img src="Journey/B_and_B_Team_Celebration.jpg" alt="B&B Team Celebration"/></div>
+        <div class="polaroid-cap">B&B Team Celebration</div>
+      </div>
+      <div class="polaroid r2" onclick="openLightbox('Journey/BandB-Refreshment and Fun Game activities.jpg','B&B Soft Tech Refreshment and Fun Game activities')">
+        <div class="polaroid-img"><img src="Journey/BandB-Refreshment and Fun Game activities.jpg" alt="B&B Refreshment & Fun Games"/></div>
+        <div class="polaroid-cap">B&B Refreshment &amp; Games</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     DESTINATION — LET'S BUILD TOGETHER
+     Light cream2 background
+════════════════════════════════════════════ -->
+<div class="section-full cream2" id="destination">
+  <div class="cta-grid reveal">
+
+    <!-- Left: Readiness Card -->
+    <div>
+      <div class="eyebrow">The Destination · Your Organization</div>
+      <h2 class="big-title">Ready to<br><em>Create Value</em></h2>
+      <p class="body-text">Every step in this journey built one thing: a professional who leads with empathy, acts with integrity, and delivers with precision. I am ready from day one.</p>
+      <div class="cta-btns">
+        <a href="mailto:ravidas.gupta99@gmail.com" class="btn-cta-primary"><i class="fas fa-envelope"></i> Send an Email</a>
+        <a href="https://www.linkedin.com/in/ravidasgupta99" target="_blank" class="btn-cta-outline"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- Right: Readiness Card -->
+    <div class="readiness-card">
+      <div class="profile-mini">
+        <img src="ProfilePhoto/Ravi.png" alt="Ravi Das Gupta"/>
+        <div>
+          <h4>Ravi Das Gupta</h4>
+          <span>Open to Work &amp; Relocate · Vancouver, BC</span>
+        </div>
+      </div>
+      <div class="readiness-item">
+        <div class="ri-icon"><i class="fas fa-headset ri-icon-i"></i></div>
+        <div>
+          <div class="ri-title">Technical Support</div>
+          <div class="ri-sub">IT escalations, M365, SaaS, L1/L2 troubleshooting</div>
+        </div>
+      </div>
+      <div class="readiness-item">
+        <div class="ri-icon"><i class="fas fa-users ri-icon-i"></i></div>
+        <div>
+          <div class="ri-title">Talent Acquisition</div>
+          <div class="ri-sub">Full-cycle recruiting, ATS, STAR interviews</div>
+        </div>
+      </div>
+      <div class="readiness-item">
+        <div class="ri-icon"><i class="fas fa-sync-alt ri-icon-i"></i></div>
+        <div>
+          <div class="ri-title">Scrum Master / Agile Coordinator</div>
+          <div class="ri-sub">Sprint ceremonies, backlog, async distributed teams</div>
+        </div>
+      </div>
+      <div class="readiness-item">
+        <div class="ri-icon"><i class="fas fa-sitemap ri-icon-i"></i></div>
+        <div>
+          <div class="ri-title">IT Leadership</div>
+          <div class="ri-sub">Strategy, change management, cross-functional alignment</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Lightbox ── -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+  <img id="lbImg" src="" alt=""/>
+  <div id="lbCap" class="lb-caption"></div>
+</div>
+
+<!-- ── Footer ── -->
+<footer>
+  <strong>Ravi Das Gupta</strong>
+  <p class="tagline">"People First, Grounded in Technology."</p>
+  <p>IT Support Specialist · Talent Acquisition · Scrum Master · MBA · Vancouver, BC, Canada</p>
+  <div class="footer-icons">
+    <a href="https://www.linkedin.com/in/ravidasgupta99" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:ravidas.gupta99@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="tel:+16723992108" title="Phone"><i class="fas fa-phone"></i></a>
+  </div>
+  <p style="margin-top:1rem;font-size:.75rem;opacity:.5;">© 2026 Ravi Das Gupta · All Rights Reserved</p>
+</footer>
+
+<script>
+/* ── PATH ANIMATION & HOVER ── */
+const path = document.getElementById('journeyPath');
+const plane = document.getElementById('planeGroup');
+const cup = document.getElementById('victoryCup');
+const nodes = document.querySelectorAll('.m-node');
+
+let totalLength = 0;
+let currentLength = 0;
+let animating = true;
+const speed = 1.3; // Speed of the plane (pixels per frame)
+
+function initPathAnimation() {
+  if (!path) return;
+  totalLength = path.getTotalLength();
+  requestAnimationFrame(animatePlane);
+}
+
+function animatePlane() {
+  if (!animating) return;
+
+  currentLength += speed;
+  if (currentLength >= totalLength) {
+    currentLength = totalLength;
+    animating = false;
+
+    // Show victory animation (green trophy cup)
+    cup.classList.add('active');
+    plane.style.opacity = '0'; // Hide plane
+
+    // Wait 3 seconds, then restart
+    setTimeout(() => {
+      cup.classList.remove('active');
+      currentLength = 0;
+      plane.style.opacity = '1';
+      animating = true;
+      requestAnimationFrame(animatePlane);
+    }, 3000);
+    return;
+  }
+
+  // Get current position & tangent angle
+  const pos = path.getPointAtLength(currentLength);
+  const nextPos = path.getPointAtLength(Math.min(currentLength + 2, totalLength));
+  const angle = Math.atan2(nextPos.y - pos.y, nextPos.x - pos.x) * 180 / Math.PI;
+
+  // Apply SVG transform attribute
+  plane.setAttribute('transform', `translate(${pos.x}, ${pos.y}) rotate(${angle})`);
+
+  requestAnimationFrame(animatePlane);
+}
+
+// Start animation
+initPathAnimation();
+
+/* Milestone active hover */
+const quotes = {
+  1: '"Every great system is built on structure — and every structure must ultimately serve people."',
+  2: '"Technical support is not just about systems — it is about restoring peace of mind."',
+  3: '"Understanding human potential is the most technical skill of all."',
+  4: '"I didn\'t just study business. I learned to see organizations the way engineers see systems."',
+  5: '"99% accuracy is not luck — it is discipline practiced daily."',
+  6: '"A great Scrum Master removes friction so the team can reach its potential."',
+  7: '"This is where the curve ends and the collaboration begins. I am ready."'
+};
+
+const refQuote = document.getElementById('refQuote');
+const panel = document.getElementById('reflectPanel');
+
+nodes.forEach(n => {
+  n.addEventListener('mouseenter', () => {
+    nodes.forEach(x => x.classList.remove('active'));
+    n.classList.add('active');
+
+    const id = n.getAttribute('data-id');
+    const quote = quotes[id];
+    if (quote && panel && refQuote) {
+      panel.style.opacity = '0';
+      setTimeout(() => {
+        refQuote.textContent = quote;
+        panel.style.opacity = '1';
+      }, 140);
+    }
+  });
+});
+
+/* Nav scroll */
+window.addEventListener('scroll', ()=>{
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* Scroll reveal */
+const revEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold: 0.1});
+revEls.forEach(el => obs.observe(el));
+
+/* Lightbox */
+function openLightbox(src, cap){
+  if(src.endsWith('.pdf')){ window.open(src,'_blank'); return; }
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lbCap').textContent = cap;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(()=>{ document.getElementById('lbImg').src=''; document.getElementById('lbCap').textContent=''; }, 300);
+}
+
+/* Credential card click */
+document.querySelectorAll('.viewable-doc').forEach(el=>{
+  el.addEventListener('click', e=>{
+    e.stopPropagation();
+    const src = el.getAttribute('data-src');
+    const img = el.querySelector('img');
+    openLightbox(src, img ? img.getAttribute('alt') : '');
+  });
+});
+
+/* 3D Tilt Effect on License Image */
+const licenseImg = document.querySelector('.engineer-license-img');
+if (licenseImg) {
+  licenseImg.addEventListener('mousemove', (e) => {
+    const rect = licenseImg.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const xc = rect.width / 2;
+    const yc = rect.height / 2;
+    // Calculate rotation: max 12 degrees
+    const tiltX = ((yc - y) / yc) * 12;
+    const tiltY = ((x - xc) / xc) * 12;
+    
+    licenseImg.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.03, 1.03, 1.03)`;
+  });
+  
+  licenseImg.addEventListener('mouseleave', () => {
+    licenseImg.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+  });
+}
+</script>
+</body>
+</html>

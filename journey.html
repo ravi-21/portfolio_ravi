@@ -394,14 +394,15 @@ body { background:var(--cream); color:var(--text-body); font-family:var(--font-b
   border-radius:24px; padding:1.3rem 1.8rem 1rem;
   box-shadow: 0 20px 60px rgba(92,61,46,.12), 0 2px 8px rgba(92,61,46,.06);
   transition:box-shadow .4s;
+  overflow:visible;
 }
 .timeline-card:hover { box-shadow:0 30px 70px rgba(92,61,46,.18); }
 .tc-header { margin-bottom:0.5rem; }
-.tc-title { font-family:var(--font-d); font-size:0.95rem; font-weight:700; color:var(--brown-dark); }
-.tc-sub { font-family:var(--font-m); font-size:.56rem; color:var(--text-muted); letter-spacing:.5px; margin-top:.15rem; }
+.tc-title { font-family:var(--font-d); font-size:1.075rem; font-weight:700; color:var(--brown-dark); }
+.tc-sub { font-family:var(--font-m); font-size:.685rem; color:var(--text-muted); letter-spacing:.5px; margin-top:.15rem; }
 
 /* SVG canvas */
-.tc-canvas { position:relative; width:100%; aspect-ratio:520/300; margin:1rem 0; }
+.tc-canvas { position:relative; width:100%; aspect-ratio:520/300; margin:1rem 0; overflow:visible; }
 .tc-path-svg { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:2; }
 .path-back { stroke:rgba(201,150,42,.15); stroke-width:2.5; fill:none; }
 .path-dash {
@@ -450,7 +451,7 @@ body { background:var(--cream); color:var(--text-body); font-family:var(--font-b
   border-radius:50%; opacity:0; transition:all .3s;
 }
 .m-label {
-  font-family:var(--font-m); font-size:.5rem; color:var(--text-muted);
+  font-family:var(--font-m); font-size:.625rem; color:var(--text-muted);
   margin-top:5px; letter-spacing:.5px; text-transform:uppercase;
   background:rgba(247,243,237,.9); padding:2px 5px;
   border-radius:3px; white-space:nowrap; pointer-events:none;
@@ -493,10 +494,10 @@ body { background:var(--cream); color:var(--text-body); font-family:var(--font-b
   border-top:1px solid rgba(92,61,46,.1); padding-top:0.5rem;
   min-height:55px; transition:opacity .2s;
 }
-.ref-title { font-family:var(--font-d); font-size:.82rem; font-weight:700; color:var(--gold); margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
-.ref-skills { font-size:.72rem; color:var(--brown-mid); margin-bottom:.4rem; line-height:1.5; }
+.ref-title { font-family:var(--font-d); font-size:.945rem; font-weight:700; color:var(--gold); margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.ref-skills { font-size:.845rem; color:var(--brown-mid); margin-bottom:.4rem; line-height:1.5; }
 .ref-skills strong { color:var(--text-body); }
-.ref-quote { font-family:var(--font-d); font-size:.74rem; color:var(--text-muted); font-style:italic; line-height:1.45; }
+.ref-quote { font-family:var(--font-d); font-size:.865rem; color:var(--text-muted); font-style:italic; line-height:1.45; }
 
 /* ══════════════════════════════════════════
    CHAPTER SEPARATOR
@@ -701,12 +702,12 @@ footer .tagline { font-style:italic; margin:.3rem 0 1rem; }
   /* KEY FIX: contain canvas inside card, add overflow:hidden to stop label spillover */
   .tc-canvas {
     width: 100% !important;
-    overflow: hidden !important;
+    overflow: visible !important;
     margin: 0.5rem 0 !important;
   }
   /* Shrink milestone labels to fit narrow canvas */
   .m-label {
-    font-size: 0.38rem !important;
+    font-size: 0.505rem !important;
     padding: 1px 2px !important;
     white-space: nowrap !important;
     max-width: 44px !important;
@@ -922,8 +923,8 @@ footer .tagline { font-style:italic; margin:.3rem 0 1rem; }
 
           <!-- SVG Path -->
           <svg class="tc-path-svg" viewBox="0 0 520 300" preserveAspectRatio="xMidYMid meet">
-            <path id="journeyPath" class="path-back" d="M 20 220 Q 70 40, 110 110 T 180 230 T 250 70 T 330 143 T 375 210 T 420 144 T 495 142"/>
-            <path class="path-dash" d="M 20 220 Q 70 40, 110 110 T 180 230 T 250 70 T 330 143 T 375 210 T 420 144 T 495 142"/>
+            <path id="journeyPath" class="path-back" d="M 20 220 Q 70 40, 110 110 Q 150 180, 180 230 Q 210 280, 250 70 Q 290 10, 330 155 Q 370 270, 375 210 Q 380 30, 420 143 Q 460 240, 495 141"/>
+            <path class="path-dash" d="M 20 220 Q 70 40, 110 110 Q 150 180, 180 230 Q 210 280, 250 70 Q 290 10, 330 155 Q 370 270, 375 210 Q 380 30, 420 143 Q 460 240, 495 141"/>
             <g id="planeGroup" filter="drop-shadow(0 0 5px var(--gold))" style="transform-box: fill-box; transform-origin: center;">
               <path d="M-10,-7 L12,0 L-10,7 L-4,1 Z" fill="var(--gold)" />
               <path d="M-4,1 L12,0" stroke="rgba(59,37,23,0.35)" stroke-width="0.8" />

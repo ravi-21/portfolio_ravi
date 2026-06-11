@@ -1433,8 +1433,9 @@ const barObserver = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.skill-card').forEach(c=>barObserver.observe(c));
 
 // ─── CONTACT FORM WITH EMAILJS ───
+// Initialize EmailJS with your Public Key
 emailjs.init({
-  publicKey: "YOUR_PUBLIC_KEY"
+  publicKey: "sqSp_KeSMkeRECqfl"
 });
 
 document.getElementById("contactForm").addEventListener("submit", function(e){
@@ -1449,10 +1450,16 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     from_name: document.getElementById("name").value,
     from_email: document.getElementById("email").value,
     subject: document.getElementById("subject").value,
-    message: document.getElementById("message").value
+    message: document.getElementById("message").value,
+    to_email: "ravidas.gupta99@gmail.com"
   };
 
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+  // Send the email using your Service ID and Template ID
+  emailjs.send(
+    "service_c51w7ck",
+    "template_rn2jyna",
+    templateParams
+  )
     .then(function(){
       btn.innerHTML = "Message Sent! ✓";
       btn.style.background = "#4ade80";

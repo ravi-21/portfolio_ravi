@@ -601,7 +601,7 @@ footer .tagline { font-style:italic; margin:.3rem 0 1rem; }
 .reveal-right.visible { opacity:1; transform:none; }
 
 /* ══════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — baseline breakpoints
 ══════════════════════════════════════════ */
 @media(max-width:980px){
   .hero-grid, .grid-2, .cta-grid { grid-template-columns:1fr; gap:3rem; }
@@ -615,105 +615,267 @@ footer .tagline { font-style:italic; margin:.3rem 0 1rem; }
 @media(max-width:600px){
   .gallery-grid.g2, .gallery-grid.g3 { grid-template-columns:1fr; }
   .stat-strip { grid-template-columns:1fr 1fr; }
-  .polaroid-grid { grid-template-columns:1fr; max-width:240px; margin:0 auto; }
+  .polaroid-grid { grid-template-columns:1fr; max-width:280px; margin:0 auto; }
 }
 
-/* ─── MOBILE SCREEN ADJUSTMENTS (UNDER 768px) ─── */
+/* ══════════════════════════════════════════
+   COMPREHENSIVE MOBILE OVERRIDES (≤768px)
+   Fixes overflow, negative margins, fixed widths,
+   fan-out clipping, timeline canvas edge safety
+══════════════════════════════════════════ */
 @media (max-width: 768px) {
-  /* Prevent logo and return button wrap/clipping in Navbar */
-  #navbar {
-    padding: 0 4% !important;
-  }
-  .nav-logo {
-    font-size: 1.1rem !important;
-  }
-  .btn-return {
-    padding: 6px 14px !important;
-    font-size: 0.7rem !important;
+
+  /* ── Global: lock horizontal overflow ── */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
   }
 
-  /* Enforce responsive images */
+  /* ── Global: responsive images ── */
   img {
     max-width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Adjust section paddings */
-  .section-full, #ch1, #ch2, #ch3, #ch4, #ch5, #destination {
-    padding: 60px 5% !important;
+  /* ══ NAV ══ */
+  #navbar {
+    padding: 0 4% !important;
+  }
+  .nav-logo {
+    font-size: 1.05rem !important;
+    letter-spacing: -0.2px !important;
+  }
+  .btn-return {
+    padding: 6px 12px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.3px !important;
   }
 
-  /* Adjust hero area */
+  /* ══ SECTION PADDING ══ */
+  .section-full {
+    padding: 56px 5% !important;
+  }
+  /* Override the increased paddings set on desktop for ch1/ch3/ch4 */
+  #ch1, #ch2, #ch3, #ch4, #ch5, #destination {
+    padding: 56px 5% !important;
+  }
+
+  /* ══ HERO ══ */
   #hero {
     padding-top: calc(var(--nav-h) + 2rem) !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
     padding-bottom: 3rem !important;
+    overflow: hidden !important;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  /* KEY FIX: reset negative top margin that causes overlap on mobile */
+  .hero-eyebrow {
+    margin-top: 0 !important;
   }
   .hero-h1 {
-    font-size: clamp(2rem, 8vw, 3.2rem) !important;
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 1rem !important;
   }
   .hero-quote {
+    font-size: 0.9rem !important;
+    max-width: 100% !important;
     margin-bottom: 1.5rem !important;
   }
+  .hero-pills {
+    flex-wrap: wrap !important;
+    gap: 0.45rem !important;
+  }
+  /* Timeline card */
   .timeline-wrap {
-    margin-top: 1.5rem !important;
+    margin-top: 0 !important; /* KEY FIX: remove -40px negative margin */
   }
   .timeline-card {
     padding: 1rem !important;
   }
+  /* KEY FIX: contain canvas inside card, add overflow:hidden to stop label spillover */
   .tc-canvas {
+    width: 100% !important;
+    overflow: hidden !important;
     margin: 0.5rem 0 !important;
   }
+  /* Shrink milestone labels to fit narrow canvas */
   .m-label {
-    font-size: 0.42rem !important;
-    padding: 1px 3px !important;
-    white-space: normal !important;
-    max-width: 50px !important;
-    text-align: center !important;
-    line-height: 1.1 !important;
+    font-size: 0.38rem !important;
+    padding: 1px 2px !important;
+    white-space: nowrap !important;
+    max-width: 44px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .tc-reflect {
+    min-height: 40px !important;
   }
 
-  /* Stacking columns */
+  /* ══ CHAPTER EYEBROWS: reset negative margins ══ */
+  .eyebrow {
+    margin-top: 0 !important;
+  }
+
+  /* ══ GRID SECTIONS ══ */
   .grid-2 {
     grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
+    gap: 2rem !important;
+    direction: ltr !important;
+  }
+  .grid-2.flip {
+    direction: ltr !important;
+  }
+  .grid-2.flip > * {
+    direction: ltr !important;
+  }
+  .cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 
-  /* Stack credential cards fan-out on hover */
-  .stack-wrap {
-    max-width: 250px !important;
+  /* ══ CHAPTER 1 — License image ══ */
+  .engineer-license-img {
+    max-width: 100% !important;
+    width: 100% !important;
   }
+
+  /* ══ CHAPTER 2 — Photo cards ══ */
+  .photo-card {
+    height: 240px !important;
+  }
+
+  /* ══ CHAPTER 3 — Photo + doc cards ══ */
+  .doc-card {
+    padding: 1rem !important;
+  }
+  .doc-name {
+    font-size: 0.78rem !important;
+  }
+
+  /* ══ CREDENTIAL STACK: disable translate fan-out that overflows screen ══ */
+  .stack-wrap {
+    max-width: 240px !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+  }
+  /* KEY FIX: on mobile, reduce translation so cards stay within viewport */
   .stack-wrap:hover .stack-card.s1 {
-    transform: rotate(-12deg) translateX(-35px) !important;
+    transform: rotate(-10deg) translateX(-20px) !important;
+  }
+  .stack-wrap:hover .stack-card.s2 {
+    transform: rotate(0deg) !important;
   }
   .stack-wrap:hover .stack-card.s3 {
-    transform: rotate(12deg) translateX(35px) !important;
+    transform: rotate(10deg) translateX(20px) !important;
   }
 
-  /* Stack gallery grids */
-  .gallery-grid.g2, .gallery-grid.g3 {
+  /* ══ CHAPTER 4 — Gallery ══ */
+  .gallery-grid.g2,
+  .gallery-grid.g3 {
     grid-template-columns: 1fr !important;
+    gap: 0.8rem !important;
   }
   .gallery-item {
     height: 180px !important;
   }
 
-  /* Polaroid layout */
-  .polaroid-grid {
-    grid-template-columns: 1fr !important;
-    max-width: 320px !important;
-    margin: 0 auto !important;
+  /* ══ CHAPTER 5 — Dark section ══ */
+  .cert-stack {
+    gap: 0.7rem !important;
+  }
+  .cert-card {
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+  }
+  .cert-name {
+    font-size: 0.82rem !important;
   }
 
-  /* Readiness card adjustments */
+  /* ══ POLAROID WALL ══ */
+  .polaroid-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    gap: 1rem !important;
+  }
+  /* Disable tilt rotation on mobile so polaroids don't clip viewport edges */
+  .polaroid.r1, .polaroid.r2 {
+    transform: none !important;
+  }
+  .polaroid:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+  }
+
+  /* ══ DESTINATION / CTA SECTION ══ */
+  .cta-btns {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+  }
+  .btn-cta-primary,
+  .btn-cta-outline {
+    width: 100% !important;
+    justify-content: center !important;
+  }
   .readiness-card {
-    padding: 1.25rem !important;
+    padding: 1.2rem !important;
+  }
+  .readiness-item {
+    gap: 0.75rem !important;
+    padding: 0.75rem 0 !important;
+  }
+  .ri-icon {
+    width: 34px !important;
+    height: 34px !important;
+    flex-shrink: 0 !important;
   }
   .ri-title {
     font-size: 0.85rem !important;
   }
   .ri-sub {
     font-size: 0.72rem !important;
+  }
+
+  /* ══ SECTION TEXT ══ */
+  .big-title {
+    font-size: clamp(1.8rem, 7vw, 2.6rem) !important;
+  }
+  .body-text {
+    font-size: 0.9rem !important;
+  }
+  .badge-row {
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+  }
+  .badge-row.nowrap {
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+  }
+
+  /* ══ SOFT SKILL CERT GRID ══ */
+  div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ══ STAT STRIP ══ */
+  .stat-strip {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .stat-cell {
+    padding: 1.4rem 1rem !important;
+  }
+  .stat-num {
+    font-size: 1.8rem !important;
+  }
+
+  /* ══ FOOTER ══ */
+  footer {
+    padding: 1.5rem 5% !important;
   }
 }
 </style>
